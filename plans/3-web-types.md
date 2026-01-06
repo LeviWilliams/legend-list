@@ -16,7 +16,7 @@ Split public types between React Native and React DOM, then publish conditional 
 - Spot-check example-web imports compile against DOM types.
 
 ## Steps
-- [ ] Add `types.base.ts`, move shared type definitions, and create platform-specific `types.ts` + `types.native.ts`.
+- [x] Add `types.base.ts`, move shared type definitions, and create platform-specific `types.ts` + `types.native.ts`.
 - [ ] Update barrel exports to re-export platform-specific types without changing public API.
 - [ ] Add conditional `exports` + subpath mappings in `package.json` for `types` and JS outputs.
 - [ ] Run build + typecheck and fix any fallout in example-web or integrations.
