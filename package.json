@@ -8,6 +8,93 @@
     "module": "./index.mjs",
     "types": "./index.d.ts",
     "react-native": "./index.native.js",
+    "exports": {
+        ".": {
+            "react-native": {
+                "types": "./index.native.d.ts",
+                "import": "./index.native.mjs",
+                "require": "./index.native.js",
+                "default": "./index.native.js"
+            },
+            "default": {
+                "types": "./index.d.ts",
+                "import": "./index.mjs",
+                "require": "./index.js",
+                "default": "./index.js"
+            }
+        },
+        "./animated": {
+            "react-native": {
+                "types": "./animated.d.ts",
+                "import": "./animated.mjs",
+                "require": "./animated.js",
+                "default": "./animated.js"
+            },
+            "default": {
+                "types": "./animated.d.ts",
+                "import": "./animated.mjs",
+                "require": "./animated.js",
+                "default": "./animated.js"
+            }
+        },
+        "./keyboard": {
+            "react-native": {
+                "types": "./keyboard.d.ts",
+                "import": "./keyboard.mjs",
+                "require": "./keyboard.js",
+                "default": "./keyboard.js"
+            },
+            "default": {
+                "types": "./keyboard.d.ts",
+                "import": "./keyboard.mjs",
+                "require": "./keyboard.js",
+                "default": "./keyboard.js"
+            }
+        },
+        "./keyboard-controller": {
+            "react-native": {
+                "types": "./keyboard-controller.d.ts",
+                "import": "./keyboard-controller.mjs",
+                "require": "./keyboard-controller.js",
+                "default": "./keyboard-controller.js"
+            },
+            "default": {
+                "types": "./keyboard-controller.d.ts",
+                "import": "./keyboard-controller.mjs",
+                "require": "./keyboard-controller.js",
+                "default": "./keyboard-controller.js"
+            }
+        },
+        "./reanimated": {
+            "react-native": {
+                "types": "./reanimated.d.ts",
+                "import": "./reanimated.mjs",
+                "require": "./reanimated.js",
+                "default": "./reanimated.js"
+            },
+            "default": {
+                "types": "./reanimated.d.ts",
+                "import": "./reanimated.mjs",
+                "require": "./reanimated.js",
+                "default": "./reanimated.js"
+            }
+        },
+        "./section-list": {
+            "react-native": {
+                "types": "./section-list/index.d.ts",
+                "import": "./section-list/index.mjs",
+                "require": "./section-list/index.js",
+                "default": "./section-list/index.js"
+            },
+            "default": {
+                "types": "./section-list/index.d.ts",
+                "import": "./section-list/index.mjs",
+                "require": "./section-list/index.js",
+                "default": "./section-list/index.js"
+            }
+        },
+        "./package.json": "./package.json"
+    },
     "files": [
         "**"
     ],
