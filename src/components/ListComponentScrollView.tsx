@@ -12,12 +12,13 @@ import {
     useRef,
 } from "react";
 
-import type { LayoutRectangle, NativeSyntheticEvent } from "@/platform/platform-types";
+import type { LayoutRectangle, NativeScrollEvent, NativeSyntheticEvent } from "@/platform/platform-types";
 import { StyleSheet } from "@/platform/StyleSheet";
 
 export type LayoutChangeEvent = NativeSyntheticEvent<{ layout: LayoutRectangle }>;
 
 export interface ScrollViewMethods {
+    flashScrollIndicators(): void;
     scrollBy(x: number, y: number): void;
     getBoundingClientRect(): DOMRect | null | undefined;
     scrollToEnd(options?: { animated?: boolean }): void;
@@ -32,18 +33,8 @@ export interface ListComponentScrollViewProps {
     contentContainerStyle?: CSSProperties;
     contentOffset?: { x: number; y: number };
     maintainVisibleContentPosition?: { minIndexForVisible: number };
-    onScroll?: (event: {
-        nativeEvent: {
-            contentOffset: { x: number; y: number };
-            contentSize: { width: number; height: number };
-            layoutMeasurement: { width: number; height: number };
-        };
-    }) => void;
-    onMomentumScrollEnd?: (event: {
-        nativeEvent: {
-            contentOffset: { x: number; y: number };
-        };
-    }) => void;
+    onScroll?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
+    onMomentumScrollEnd?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
     showsHorizontalScrollIndicator?: boolean;
     showsVerticalScrollIndicator?: boolean;
     refreshControl?: ReactElement;
@@ -82,6 +73,9 @@ export const ListComponentScrollView = forwardRef(function ListComponentScrollVi
 
     useImperativeHandle(ref, () => {
         const api: ScrollViewMethods = {
+            flashScrollIndicators: () => {
+                return;
+            },
             getBoundingClientRect: () => scrollRef.current?.getBoundingClientRect(),
             getScrollableNode: () => scrollRef.current!,
             getScrollResponder: () => scrollRef.current,

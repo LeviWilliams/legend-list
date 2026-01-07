@@ -9,19 +9,32 @@ import type {
 } from "./types.base";
 
 type DOMInsets = {
-    top: number;
-    left: number;
-    bottom: number;
-    right: number;
+    top?: number;
+    left?: number;
+    bottom?: number;
+    right?: number;
 };
 
-type DOMStyleProp = CSSProperties | CSSProperties[] | false | null | undefined;
+type DOMStyleProp =
+    | CSSProperties
+    | CSSProperties[]
+    | Record<string, unknown>
+    | Record<string, unknown>[]
+    | object
+    | string
+    | number
+    | false
+    | null
+    | undefined;
 
-type DOMScrollViewProps = Omit<ComponentProps<"div">, "style"> & {
+type DOMEventHandlers = Omit<React.DOMAttributes<HTMLDivElement>, "onScroll">;
+type DOMEventHandlerOverrides = { [Key in keyof DOMEventHandlers]?: any };
+
+type DOMScrollViewProps = Omit<ComponentProps<"div">, "onScroll" | "ref" | "style"> & DOMEventHandlerOverrides & {
     style?: DOMStyleProp;
     contentContainerStyle?: DOMStyleProp;
     contentInset?: DOMInsets;
-    horizontal?: boolean;
+    horizontal?: boolean | null;
     scrollEventThrottle?: number;
     showsHorizontalScrollIndicator?: boolean;
     showsVerticalScrollIndicator?: boolean;
@@ -29,17 +42,20 @@ type DOMScrollViewProps = Omit<ComponentProps<"div">, "style"> & {
     refreshing?: boolean;
     onRefresh?: () => void;
     progressViewOffset?: number;
-    onMomentumScrollEnd?: (event: { nativeEvent: { contentOffset: { x: number; y: number } } }) => void;
+    onLayout?: (event: any) => void;
+    onMomentumScrollEnd?: (event: any) => void;
+    onScroll?: (event: any) => void;
+    scrollIndicatorInsets?: DOMInsets;
 };
 
 type DOMNativeSyntheticEvent = NativeSyntheticEvent<NativeScrollEvent>;
 
 type DOMPlatformTypes = {
     ScrollViewProps: DOMScrollViewProps;
-    ScrollViewRef: HTMLDivElement;
-    ScrollView: HTMLDivElement;
-    ScrollResponderMixin: unknown;
-    View: HTMLElement;
+    ScrollViewRef: any;
+    ScrollView: any;
+    ScrollResponderMixin: object;
+    View: object;
     StyleProp: DOMStyleProp;
     NativeSyntheticEvent: DOMNativeSyntheticEvent;
     Insets: DOMInsets;

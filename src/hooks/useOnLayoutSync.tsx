@@ -1,12 +1,12 @@
 // biome-ignore lint/style/useImportType: Leaving this out makes it crash in some environments
 import * as React from "react";
 import { useLayoutEffect } from "react";
-import type { LayoutChangeEvent, LayoutRectangle, View } from "react-native";
 
 import type { ScrollViewMethods } from "@/components/ListComponentScrollView";
 import { createResizeObserver } from "@/hooks/createResizeObserver";
+import type { LayoutChangeEvent, LayoutRectangle } from "@/platform/platform-types";
 
-export function useOnLayoutSync<T extends ScrollViewMethods | View | HTMLElement>(
+export function useOnLayoutSync<T extends ScrollViewMethods | HTMLElement | object>(
     {
         ref,
         onLayoutProp,
