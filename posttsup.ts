@@ -46,12 +46,12 @@ const reactNativeExport = (name: string, typesPath: string) => ({
 pkgOut.main = "./index.production.js";
 pkgOut.module = "./index.production.mjs";
 pkgOut.types = "./index.d.ts";
-pkgOut["react-native"] = "./index.native.js";
+pkgOut["react-native"] = "./index.js";
 pkgOut.exports = {
     ".": {
         "react-native": {
-            import: "./index.native.mjs",
-            require: "./index.native.js",
+            import: "./index.mjs",
+            require: "./index.js",
             types: "./index.d.ts",
         },
         ...webExport("index"),

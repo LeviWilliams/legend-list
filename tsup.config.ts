@@ -27,14 +27,13 @@ const defineEnv = (isDev: boolean) => {
     const mode = isDev ? "development" : "production";
     return {
         __DEV__: JSON.stringify(isDev),
-        "process.env.NODE_ENV": JSON.stringify(mode),
         "process.env.MODE": JSON.stringify(mode),
+        "process.env.NODE_ENV": JSON.stringify(mode),
     };
 };
 
 export default defineConfig([
     {
-        name: "web-production",
         clean: true,
         define: defineEnv(false),
         dts: {
@@ -44,32 +43,32 @@ export default defineConfig([
         external,
         format: ["cjs", "esm"],
         minify: true,
+        name: "web-production",
         splitting: false,
         treeshake: true,
     },
     {
-        name: "web-development",
         clean: false,
         define: defineEnv(true),
         dts: false,
         entry: entriesWithSuffix("development"),
         external,
         format: ["cjs", "esm"],
+        name: "web-development",
         splitting: false,
         treeshake: true,
     },
     {
-        name: "shared-native",
         clean: false,
         dts: false,
         entry: webEntries,
         external,
         format: ["cjs", "esm"],
+        name: "shared-native",
         splitting: false,
         treeshake: true,
     },
     {
-        name: "native",
         clean: false,
         dts: true,
         entry: {
@@ -80,6 +79,7 @@ export default defineConfig([
         },
         external,
         format: ["cjs", "esm"],
+        name: "native",
         splitting: false,
         treeshake: true,
     },
