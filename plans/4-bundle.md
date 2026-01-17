@@ -18,4 +18,4 @@ Ship separate development and production bundles for web entrypoints (React DOM)
 ## Steps
 - [x] Update tsup config to emit separate web dev/prod bundles and keep a single native bundle.
 - [x] Update posttsup packaging to write conditional exports for dev/prod web bundles and preserve react-native entrypoint.
-- [ ] Build and verify that dev-only code is present in dev bundles and stripped from prod bundles.
+- [x] Build and verify that dev-only code is present in dev bundles and stripped from prod bundles.
