@@ -58,6 +58,7 @@ export {
     type InitialScrollAnchor,
     type LegendListRecyclingState,
     type LegendListRenderItemProps,
+    type LegendListMetrics,
     type MaintainScrollAtEndOptions,
     type MaintainVisibleContentPositionConfig,
     type MaintainVisibleContentPositionNormalized,

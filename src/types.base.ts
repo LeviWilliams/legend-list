@@ -231,6 +231,11 @@ interface LegendListSpecificProps<
     }) => void;
 
     /**
+     * Called when list layout metrics change.
+     */
+    onMetricsChange?: (metrics: LegendListMetrics) => void;
+
+    /**
      * Function to call when the user pulls to refresh.
      */
     onRefresh?: () => void;
@@ -387,6 +392,12 @@ export interface ColumnWrapperStyle {
     rowGap?: number;
     gap?: number;
     columnGap?: number;
+}
+
+export interface LegendListMetrics {
+    alignItemsAtEndPadding: number;
+    headerSize: number;
+    footerSize: number;
 }
 
 export interface ThresholdSnapshot {
